@@ -1,0 +1,40 @@
+{
+  "name": "blog",
+  "version": "0.0.1",
+  "description": "mini blog project",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./api/server.js",
+    "start": "nodemon --exec babel-node --presets='@babel/preset-env' -- ./api/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ertugrulhaskan/blog.git"
+  },
+  "keywords": [
+    "mini",
+    "blog",
+    "ciccc",
+    "midterm"
+  ],
+  "author": "ertughaskan@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ertugrulhaskan/blog/issues"
+  },
+  "homepage": "https://github.com/ertugrulhaskan/blog#readme",
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "fs": "0.0.1-security",
+    "https": "^1.0.0",
+    "mongodb": "^4.3.0",
+    "mongoose": "^6.1.7"
+  }
+}
