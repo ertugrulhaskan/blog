@@ -1,11 +1,18 @@
 const routes = (app) => {
   app
     .route("/contact")
-    .get((req, res) => {
-      res.send("test get!");
-    })
+    .get(
+      (req, res, next) => {
+        // Middleware
+        console.info(`Captain's Log \n ${req}`);
+        next();
+      },
+      (req, res, next) => {
+        res.send("GET Method");
+      }
+    )
     .post((req, res) => {
-      res.send("test put");
+      res.send("POST Method");
     });
 };
 
