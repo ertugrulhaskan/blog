@@ -15,12 +15,22 @@ export const newBlogPost = (req, res) => {
 };
 
 // Get all posts
+// export const getAllPosts = (req, res) => {
+//   Post.find({}, (err, blogPost) => {
+//     if (err) {
+//       res.send(err);
+//     }
+//     res.json(blogPost);
+//   });
+// };
+
+// Server Side Rendering
 export const getAllPosts = (req, res) => {
   Post.find({}, (err, blogPost) => {
     if (err) {
       res.send(err);
     }
-    res.json(blogPost);
+    res.render("index.ejs", { posts: blogPost });
   });
 };
 

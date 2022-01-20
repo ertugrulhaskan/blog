@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Blog</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="/assets/styles/tailwind.css" rel="stylesheet" />
+  </head>
+  <body class="bg-gray-100">
+    <h1 class="text-6xl font-semibold text-center mt-10">Mini Blog</h1>
+    <div class="max-w-lg mx-auto p-2 my-10">
+      <div class="posts-wrapper">
+        <% for(post of posts){ %>
+        <div
+          class="bg-white border border-solid border-gray-100 rounded-md p-4 mb-4 post"
+        >
+          <h2 class="text-4xl font-semibold text-blue-500">
+            <%= post.title %>
+          </h2>
+          <div class="content mb-2">
+            <p><%= post.body %></p>
+          </div>
+          <div
+            class="flex justify-between border-t border-solid border-gray-100 text-base pt-2 post-foo"
+          >
+            <strong class="text-gray-500"><%= post.author %></strong>
+            <em class="not-italic w-28 text-xs"><%= post.date %></em>
+          </div>
+        </div>
+        <% } %>
+      </div>
+    </div>
+  </body>
+</html>

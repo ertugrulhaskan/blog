@@ -27,7 +27,15 @@ mongoose
     console.log(`> Error while connecting to mongoDB : ${err.message}`);
   });
 
+const path = require("path");
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "../src/layouts"));
+
+// app.get("/", async (req, res) => {
+//   const allPosts = await Post.find();
+//   res.render("index", { posts: allPosts });
+// });
+
 app.use(express.static("public"));
 
 import { urlencoded, json } from "body-parser";
@@ -39,6 +47,18 @@ import postRouter from "./router/posts";
 app.use("/api", postRouter);
 import commentRouter from "./router/comments";
 app.use("/api", commentRouter);
+
+// app.use("/about", (req, res) => {
+//   res.render("about");
+// });
+
+// app.use((req, res, next) => {
+//   res.status(404).render("404");
+// });
+
+// Routes for server side render
+import { getAllPosts } from "./controllers/posts";
+app.use("/", getAllPosts);
 
 // https Server
 import { createServer } from "https";
