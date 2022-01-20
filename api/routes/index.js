@@ -1,4 +1,9 @@
-import { newBlogPost, getAllPosts, getPostWithID } from "../controllers";
+import {
+  newBlogPost,
+  getAllPosts,
+  getPostWithID,
+  updatePost,
+} from "../controllers";
 
 const routes = (app) => {
   app
@@ -13,9 +18,7 @@ const routes = (app) => {
   app
     .route("/api/article/:id")
     .get(getPostWithID)
-    .put((req, res) => {
-      res.send("PUT Method");
-    })
+    .put(updatePost)
     .delete((res, req) => {
       res.send("DELETE Method");
     });

@@ -34,3 +34,18 @@ export const getPostWithID = (req, res) => {
     res.json(blogPost);
   });
 };
+
+// Update an article
+export const updatePost = (req, res) => {
+  Post.findByIdAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    { new: true, useFindAndModify: false },
+    (err, blogPost) => {
+      if (err) {
+        res.send(err);
+      }
+      res.json(blogPost);
+    }
+  );
+};
