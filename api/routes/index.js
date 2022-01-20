@@ -1,18 +1,13 @@
-import { newBlogPost } from "../controllers";
+import { newBlogPost, getAllPosts } from "../controllers";
 
 const routes = (app) => {
   app
     .route("/api/article")
-    .get(
-      (req, res, next) => {
-        // Middleware
-        console.info(`Captain's Log \n ${req}`);
-        next();
-      },
-      (req, res, next) => {
-        res.send("GET Method");
-      }
-    )
+    .get((req, res, next) => {
+      // Middleware
+      console.info(`Captain's Log \n ${req}`);
+      next();
+    }, getAllPosts)
     .post(newBlogPost);
 
   // .post((req, res) => {

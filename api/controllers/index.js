@@ -13,3 +13,12 @@ export const newBlogPost = (req, res) => {
     res.json(blogPost);
   });
 };
+
+export const getAllPosts = (req, res) => {
+  Post.find({}, (err, blogPost) => {
+    if (err) {
+      res.send(err);
+    }
+    res.json(blogPost);
+  });
+};
