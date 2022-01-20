@@ -8,4 +8,7 @@ export const commentSchema = new Schema({
   comment: {
     type: String,
   },
+  postID: {
+    type: String,
+  },
 });
