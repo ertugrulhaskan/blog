@@ -18,7 +18,7 @@ const serverOptions = {
 import mongoose from "mongoose";
 mongoose.Promise = global.Promise;
 mongoose
-  .connect(`${process.env.DB_HOST}:${process.env.DB_PORT}`, {
+  .connect(`${process.env.DB_HOST}:${process.env.DB_PORT}/blog`, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

@@ -1,6 +1,8 @@
+import { newBlogPost } from "../controllers";
+
 const routes = (app) => {
   app
-    .route("/contact")
+    .route("/api/article")
     .get(
       (req, res, next) => {
         // Middleware
@@ -11,9 +13,11 @@ const routes = (app) => {
         res.send("GET Method");
       }
     )
-    .post((req, res) => {
-      res.send("POST Method");
-    });
+    .post(newBlogPost);
+
+  // .post((req, res) => {
+  //   res.send("POST Method");
+  // });
 };
 
 export default routes;
