@@ -1,12 +1,11 @@
 import { model } from "mongoose";
-import { articleSchema } from "../models";
+import { postSchema } from "../../models/posts";
 
-const Post = model("Article", articleSchema);
+const Post = model("Post", postSchema);
 
-// Adding new article
+// Adding a new post
 export const newBlogPost = (req, res) => {
   let newPost = new Post(req.body);
-  console.log(newPost);
   newPost.save((err, blogPost) => {
     if (err) {
       res.send(err);
@@ -15,7 +14,7 @@ export const newBlogPost = (req, res) => {
   });
 };
 
-// Get all articles
+// Get all posts
 export const getAllPosts = (req, res) => {
   Post.find({}, (err, blogPost) => {
     if (err) {
@@ -25,9 +24,10 @@ export const getAllPosts = (req, res) => {
   });
 };
 
-// Get article with ID
+// Get a post with ID
 export const getPostWithID = (req, res) => {
   Post.findById(req.params.id, (err, blogPost) => {
+    console.log(req.params.id);
     if (err) {
       res.send(err);
     }
@@ -35,7 +35,7 @@ export const getPostWithID = (req, res) => {
   });
 };
 
-// Update an article
+// Update a post
 export const updatePost = (req, res) => {
   Post.findByIdAndUpdate(
     { _id: req.params.id },
@@ -50,7 +50,7 @@ export const updatePost = (req, res) => {
   );
 };
 
-// Delete an article
+// Delete a post
 export const deletePost = (req, res) => {
   Post.remove({ _id: req.params.id }, (err, blogPost) => {
     if (err) {

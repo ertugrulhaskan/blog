@@ -1,6 +1,6 @@
 import { Schema } from "mongoose";
 
-export const articleSchema = new Schema({
+export const postSchema = new Schema({
   date: { type: Date, default: Date.now },
   title: {
     type: String,
