@@ -17,11 +17,10 @@
   </head>
   <body class="bg-gray-100">
     <h1 class="mt-10 text-4xl font-semibold text-center">
-      See Something, Say Something
+      <a href="/" class="underline hover:text-blue-500">Back to The Future</a>
     </h1>
     <div class="max-w-lg p-2 mx-auto my-10">
       <div class="posts-wrapper">
-        <% for(post of posts){ %>
         <div
           class="p-4 mb-4 bg-white border border-gray-100 border-solid rounded-md post"
         >
@@ -32,15 +31,8 @@
             <%- include('components/likes', { postID: post._id, likes:
             post.likes }); %>
           </div>
-
           <div class="my-5 content">
-            <p>
-              <%= post.content %><a
-                href="post/<%= post._id %>"
-                class="ml-2 text-sm text-blue-300 underline decoration-blue-300 underline-offset-2"
-                >Read more...</a
-              >
-            </p>
+            <p><%= post.content %></p>
           </div>
           <div
             class="flex justify-between pt-2 text-base border-t border-gray-100 border-solid post-foo"
@@ -51,24 +43,14 @@
             >
           </div>
         </div>
-        <% } %>
       </div>
-      <a
-        href="post"
-        class="fixed flex flex-row items-center justify-center w-16 h-16 text-center text-white bg-blue-400 rounded-full outline-none bottom-5 right-5 hover:bg-blue-600"
-      >
-        <svg
-          class="w-12 fill-white"
-          xmlns="http://www.w3.org/2000/svg"
-          xml:space="preserve"
-          viewBox="0 0 16 16"
+      <div class="ml-10 comments-wrapper">
+        <div
+          class="pl-2 mb-2 border-l-2 border-blue-400 border-solid comment-box"
         >
-          <path
-            d="M8 0C3.589 0 0 3.589 0 8s3.589 8 8 8 8-3.589 8-8-3.589-8-8-8zm0 14c-3.309 0-6-2.691-6-6s2.691-6 6-6 6 2.691 6 6-2.691 6-6 6z"
-          />
-          <path d="M9 4H7v3H4v2h3v3h2V9h3V7H9z" />
-        </svg>
-      </a>
+          <%= comments %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

@@ -4,16 +4,16 @@ export const postSchema = new Schema({
   date: { type: Date, default: Date.now },
   title: {
     type: String,
-    required: "You need an title",
+    required: true,
   },
   author: {
     type: String,
-    required: "Who one type this article?",
+    required: true,
     default: "Alex Haskan",
   },
-  body: {
+  content: {
     type: String,
-    required: "You need type somethings...",
+    required: true,
   },
   comments: {
     type: Array,

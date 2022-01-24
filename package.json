@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node --presets='@babel/preset-env' -- ./api/server.js",
+    "server": "nodemon --exec babel-node --presets='@babel/preset-env' -- ./server/index.js",
     "tailwindcss": "npx tailwindcss -i ./src/assets/styles/tailwind.css -o ./public/assets/styles/tailwind.css --watch"
   },
   "repository": {
@@ -39,6 +40,7 @@
     "express": "^4.17.2",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
+    "moment": "^2.29.1",
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.7"
   }
