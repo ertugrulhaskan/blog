@@ -1,5 +1,6 @@
 import moment from "moment";
 import { model } from "mongoose";
+import { comment } from "postcss";
 import { postSchema } from "../../models/posts";
 import { getComments } from "../comments";
 
@@ -18,8 +19,8 @@ export const newBlogPost = async (req, res, next) => {
 };
 
 // Get a post with ID
-export const getPostWithID = (req, res) => {
-  let comments = getComments(req.params.id);
+export const getPostWithID = async (req, res) => {
+  let comments = await getComments(req.params.id);
   Post.findById(req.params.id, (err, blogPost) => {
     if (err) {
       res.send(err);

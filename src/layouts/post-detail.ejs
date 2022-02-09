@@ -44,12 +44,15 @@
           </div>
         </div>
       </div>
+      <h3 class="mb-2 ml-2">Comments</h3>
       <div class="ml-10 comments-wrapper">
+        <% comments.forEach((comment) =>{ %>
         <div
-          class="pl-2 mb-2 border-l-2 border-blue-400 border-solid comment-box"
+          class="p-2 mb-2 border-l-4 border-blue-400 border-solid bg-white comment-box"
         >
-          <%= comments %>
+          <%= comment.comment %>
         </div>
+        <% }) %>
       </div>
     </div>
   </body>

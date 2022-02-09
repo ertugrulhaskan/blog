@@ -47,3 +47,5 @@ import router from "./router";
 app.use(router);
 import postRouter from "./router/posts";
 app.use(postRouter);
+import commentRouter from "./router/comments";
+app.use(commentRouter);
