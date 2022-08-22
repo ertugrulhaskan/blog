@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <%- include("../partials/head.ejs") %>
+  <body>
+    <main class="flex flex-col lg:flex-row px-5 py-10">
+      <%- include("../partials/sidebar.ejs") %>
+      <section class="pt-10 lg:grow lg:pt-24">
+        <%- include("../partials/hero.ejs") %>
+        <div class="mb-10 lg:mb-10 lg:ml-10 lg:-mr-10 pb-10">
+          <h2 class="uppercase mb-2 text-3xl font-sans font-semibold">LOGS</h2>
+          <ul class="-mx-5">
+            <%- include("../partials/post.ejs") %>
+          </ul>
+          <div class="mt-10">
+            <button>Load More</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

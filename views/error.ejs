@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Error <%- error.status %></title>
+    <%- include("partials/head.ejs") %>
+  </head>
+
+  <body>
+    <div class="p-10">
+      <h1 class="text-6xl font-semibold mb-5">
+        <%- message %>
+        <span class="text-xl">(<%- error.status %>)</span>
+      </h1>
+      <pre
+        class="w-full p-5 border-4 border-rose-700 bg-rose-200 text-rose-700 overflow-auto"
+      >
+      <%- error.stack %>
+    </pre
+      >
+      <div class="text-center mt-10">
+        <a
+          href="/"
+          class="font-sans px-3 py-1 hover:underline hover:underline-offset-2 hover:bg-sky-200"
+          >Back to homepage</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

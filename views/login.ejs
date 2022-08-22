@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <%- include("partials/head.ejs") %>
+  <body>
+    <div class="container mx-auto flex justify-center items-center h-screen">
+      <form class="w-4/12">
+        <legend>Login</legend>
+        <div class="bg-white border-2 border-gray-100 p-2 mb-4">
+          <div class="mb-5">
+            <input type="text" name="email" id="email" placeholder="E-mail" />
+          </div>
+          <div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div>
+          <button class="w-full">Login</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
