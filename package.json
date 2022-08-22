@@ -8,6 +8,7 @@
     "tailwindcss": "npx tailwindcss -i ./styles/tailwind.css -o ./public/stylesheets/tailwind.css --watch"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.1",

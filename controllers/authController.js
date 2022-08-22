@@ -17,8 +17,12 @@ const errorHandler = (error) => {
   return message;
 };
 
+const passwordCompare = async (password, passwordConfirm) => {
+  return password !== passwordConfirm ? false : true;
+};
+
 module.exports.login = (req, res, next) => {
-  res.render("login");
+  res.status(200).render("login");
 };
 
 module.exports.register = (req, res, next) => {
@@ -33,11 +37,18 @@ module.exports.login_auth = (req, res, next) => {
 
 module.exports.register_auth = async (req, res, next) => {
   const { email, password, passwordConfirm } = req.body;
+  let isPasswordEqual = await passwordCompare(password, passwordConfirm);
+  if (!isPasswordEqual) {
+    res
+      .status(400)
+      .json({ error: { passwordConfirm: "Please confirm your password!" } });
+    return false;
+  }
   try {
     const user = await User.create({ email, password });
-    res.status(201).json(user);
+    res.status(201).json({ user: { email: user.email, id: user._id } });
   } catch (error) {
     let message = errorHandler(error);
-    res.json({ error: message });
+    res.status(400).json({ error: message });
   }
 };

@@ -5,16 +5,15 @@
     <div class="container mx-auto flex justify-center items-center h-screen">
       <form class="w-4/12" id="register">
         <legend>Register</legend>
-        <% if (locals.error) { %>
-        <div class="bg-rose-100 text-rose-600 mb-2 border-2 border-rose-600">
-          <%- error.password %>
-        </div>
-        <% } %>
-        <fieldset class="bg-white border-2 border-gray-100 p-2 mb-4">
-          <div class="mb-5">
+        <fieldset class="bg-white border-2 border-gray-100 p-3 mb-4">
+          <div class="mb-4">
             <input type="text" name="email" id="email" placeholder="E-mail" />
+            <p
+              class="mt-1 px-4 text-rose-700 text-sm font-semibold"
+              data-error="email"
+            ></p>
           </div>
-          <div class="mb-5">
+          <div class="mb-4">
             <input
               type="password"
               name="password"
@@ -22,6 +21,10 @@
               placeholder="Password"
               autocomplete="off"
             />
+            <p
+              class="mt-1 px-4 text-rose-700 text-sm font-semibold"
+              data-error="password"
+            ></p>
           </div>
           <div>
             <input
@@ -31,6 +34,10 @@
               placeholder="Confirm Password"
               autocomplete="off"
             />
+            <p
+              class="mt-1 px-4 text-rose-700 text-sm font-semibold"
+              data-error="passwordConfirm"
+            ></p>
           </div>
         </fieldset>
         <div>
@@ -40,15 +47,27 @@
     </div>
 
     <script>
+      // Selectors
       const formRegister = document.querySelector("#register");
+      const email = document.querySelector("#email"),
+        password = document.querySelector("#password"),
+        passwordConfirm = document.querySelector("#passwordConfirm");
 
-      formRegister.addEventListener("submit", (event) => {
+      // Methods
+      const resetValidate = () => {
+        document.querySelectorAll("[data-error]").forEach((errElm) => {
+          errElm.innerText = "";
+        });
+      };
+
+      const submitHandler = async (event) => {
         event.preventDefault();
+        resetValidate();
 
         const payload = {
-          email: document.querySelector("#email").value,
-          password: document.querySelector("#password").value,
-          passwordConfirm: document.querySelector("#passwordConfirm").value,
+          email: email.value,
+          password: password.value,
+          passwordConfirm: passwordConfirm.value,
         };
 
         const options = {
@@ -58,24 +77,29 @@
           },
         };
 
-        fetch("/register", {
-          ...options,
-          method: "POST",
-          body: JSON.stringify(payload),
-        })
-          .then(function (response) {
-            if (response.ok) {
-              return response.json();
-            }
-            return Promise.reject(response);
-          })
-          .then(function (data) {
-            console.log(data);
-          })
-          .catch(function (error) {
-            console.warn(error);
+        try {
+          const response = await fetch("/register", {
+            ...options,
+            method: "POST",
+            body: JSON.stringify(payload),
           });
-      });
+          const data = await response.json();
+          if (data.error) {
+            Object.keys(data.error).forEach((err) => {
+              document.querySelector(`[data-error=${err}]`).innerText =
+                data.error[err];
+            });
+          }
+          if (data.user) {
+            location.assign("/");
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+
+      // Event Listeners
+      formRegister.addEventListener("submit", submitHandler);
     </script>
   </body>
 </html>

@@ -11,6 +11,7 @@ router.get("/tech-stack", mainController.postTechStack);
 // Auth Controller
 router.get("/login", authController.login);
 router.post("/login", authController.login_auth);
+
 router.get("/register", authController.register);
 router.post("/register", authController.register_auth);
 

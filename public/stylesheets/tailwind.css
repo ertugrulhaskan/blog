@@ -690,6 +690,14 @@ button:hover,
   margin-right: auto;
 }
 
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -698,20 +706,24 @@ button:hover,
   margin-bottom: 0.5rem;
 }
 
-.mt-10 {
-  margin-top: 2.5rem;
-}
-
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .flex {
@@ -770,11 +782,6 @@ button:hover,
   border-bottom-width: 1px;
 }
 
-.border-slate-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(203 213 225 / var(--tw-border-opacity));
-}
-
 .border-rose-700 {
   --tw-border-opacity: 1;
   border-color: rgb(190 18 60 / var(--tw-border-opacity));
@@ -788,6 +795,11 @@ button:hover,
 .border-rose-600 {
   --tw-border-opacity: 1;
   border-color: rgb(225 29 72 / var(--tw-border-opacity));
+}
+
+.border-slate-300 {
+  --tw-border-opacity: 1;
+  border-color: rgb(203 213 225 / var(--tw-border-opacity));
 }
 
 .bg-rose-200 {
@@ -805,16 +817,34 @@ button:hover,
   background-color: rgb(255 228 230 / var(--tw-bg-opacity));
 }
 
-.p-5 {
-  padding: 1.25rem;
-}
-
 .p-10 {
   padding: 2.5rem;
 }
 
+.p-5 {
+  padding: 1.25rem;
+}
+
 .p-2 {
   padding: 0.5rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-1 {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
 }
 
 .px-5 {
@@ -827,14 +857,14 @@ button:hover,
   padding-bottom: 2.5rem;
 }
 
-.px-3 {
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
-.py-1 {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pt-10 {
@@ -857,9 +887,14 @@ button:hover,
   font-family: Poppins, sans-serif;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+.text-6xl {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .text-3xl {
@@ -867,19 +902,14 @@ button:hover,
   line-height: 2.25rem;
 }
 
-.text-6xl {
-  font-size: 3.75rem;
-  line-height: 1;
-}
-
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
 }
 
 .text-sm {
@@ -951,10 +981,6 @@ button:hover,
 }
 
 @media (min-width: 1024px) {
-  .lg\:mb-5 {
-    margin-bottom: 1.25rem;
-  }
-
   .lg\:mb-10 {
     margin-bottom: 2.5rem;
   }
@@ -971,12 +997,16 @@ button:hover,
     margin-left: -1.25rem;
   }
 
-  .lg\:w-full {
-    width: 100%;
+  .lg\:mb-5 {
+    margin-bottom: 1.25rem;
   }
 
   .lg\:w-7\/12 {
     width: 58.333333%;
+  }
+
+  .lg\:w-full {
+    width: 100%;
   }
 
   .lg\:grow {
