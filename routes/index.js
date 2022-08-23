@@ -7,6 +7,8 @@ const authController = require("../controllers/authController");
 router.get("/", mainController.homepage);
 router.get("/life", mainController.postLife);
 router.get("/tech-stack", mainController.postTechStack);
+router.get("/dashboard", mainController.dashboard);
+router.get("/add-log", mainController.addLog);
 
 // Auth Controller
 router.get("/login", authController.login);

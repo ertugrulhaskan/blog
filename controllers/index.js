@@ -41,3 +41,27 @@ module.exports.postTechStack = function (req, res, next) {
   });
   // next();
 };
+
+module.exports.dashboard = function (req, res, next) {
+  res.render("./dashboard", {
+    meta: {
+      title: "Dashboard",
+      keywords: "dashboard, blog",
+      description: "Welcome to Dashboard",
+    },
+    title: "Dashboard",
+  });
+  // next();
+};
+
+module.exports.addLog = function (req, res, next) {
+  res.render("./dashboard/add-log", {
+    meta: {
+      title: "Dashboard / Add new log",
+      keywords: "dashboard, blog",
+      description: "Welcome to Dashboard",
+    },
+    title: "Add new log",
+  });
+  // next();
+};

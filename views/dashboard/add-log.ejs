@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <%- include("../partials/head.ejs") %>
+  <body>
+    <main class="flex flex-col lg:flex-row px-5 py-10 lg:h-screen">
+      <%- include("dashboard-sidebar.ejs") %>
+      <section class="lg:ml-10 flex-grow lg:max-w-3xl">
+        <h2 class="uppercase mb-5 text-3xl font-sans font-semibold">
+          ADD NEW LOG
+        </h2>
+        <form>
+          <div class="mb-5">
+            <label for="title" class="text-2xl mb-2 font-semibold">Title</label>
+            <input type="text" name="title" id="title" />
+          </div>
+          <div class="mb-5">
+            <label for="details" class="text-2xl mb-2 font-semibold"
+              >Details</label
+            >
+            <textarea
+              name="details"
+              id="details"
+              cols="30"
+              rows="10"
+              class="h-full"
+            ></textarea>
+          </div>
+          <div class="flex justify-between">
+            <button class="mr-4 hover:bg-lime-700 hover:text-white">
+              Save as a draft
+            </button>
+            <button class="hover:bg-rose-700 hover:text-white">
+              Save and Publish
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
