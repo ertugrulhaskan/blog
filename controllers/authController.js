@@ -24,7 +24,7 @@ const passwordCompare = async (password, passwordConfirm) => {
   return password !== passwordConfirm ? false : true;
 };
 
-const MAX_TOKEN_AGE = 1000 * 60 * 60;
+const MAX_TOKEN_AGE = 60 * 60; // AN HOUR TOKEN
 const createToken = (id) => {
   console.log(process.env.SECRET_TOKEN_KEY);
   return jwt.sign({ id }, process.env.SECRET_TOKEN_KEY, {
@@ -58,7 +58,7 @@ module.exports.register_auth = async (req, res, next) => {
   try {
     const user = await User.create({ email, password });
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge: MAX_TOKEN_AGE });
+    res.cookie("jwt", token, { httpOnly: true, maxAge: MAX_TOKEN_AGE * 1000 });
     res.status(201).json({ user: { email: user.email, id: user._id } });
   } catch (error) {
     let message = errorHandler(error);
