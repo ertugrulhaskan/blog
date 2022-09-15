@@ -1,7 +1,7 @@
 
 # Blog App
 
-Create own blog application. (Working on it)
+Create own blog application. (Server side application and I am working on it).
 ## Features
 
 - AOuth
@@ -11,8 +11,6 @@ Create own blog application. (Working on it)
 - Cross platform
 
 ## Tech Stack
-
-**Client:** React, TailwindCSS
 
 **Server:** Node, Express
 
