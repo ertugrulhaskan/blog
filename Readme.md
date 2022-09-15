@@ -43,7 +43,7 @@ Install dependencies
 Start the server
 
 ```bash
-  npm run serve
+  npm run dev
 ```
 
 
